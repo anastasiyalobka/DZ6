@@ -17,17 +17,17 @@ public class WebSteps {
 
     @Step("Выполняем поиск репозитория {repository}")
     public void searchRepository(String repository) {
-        $(".header-search-input").click();
         $(".header-search-input").setValue("anastasiyalobka/DZ5").pressEnter();
     }
 
     @Step("Переходим в репозиторий {repository}")
     public void goToRepository(String repository) {
+
         $(By.linkText("anastasiyalobka/DZ5")).click();
     }
 
     @Step("Проверяем наличие Issues")
-    public void CheckResults() {
-        $(byText("Issues")).should(Condition.exist);
+    public void checkResults() {
+        $(".UnderlineNav-body").$(byText("Issues")).should(Condition.visible);
     }
 }

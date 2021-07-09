@@ -11,6 +11,6 @@ public class TestWithAnnotationStep {
         steps.openPage();
         steps.searchRepository("anastasiyalobka/DZ5");
         steps.goToRepository("anastasiyalobka/DZ5");
-        steps.CheckResults();
+        steps.checkResults();
     }
 }

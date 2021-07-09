@@ -17,6 +17,7 @@ public class TestWithLambda {
 
     @Feature("Issues")
     @Owner("anastasiyalobka")
+
     @Test
     @Story("Проверка Issues")
     @Severity(SeverityLevel.CRITICAL)
@@ -32,7 +33,6 @@ public class TestWithLambda {
 
         step("Выполняем поиск репозитория " + REPOSITORY, (s) -> {
             s.parameter("repository", REPOSITORY);
-            $(".header-search-input").click();
             $(".header-search-input").setValue(REPOSITORY).pressEnter();
         });
         step("Переходим в репозиторий " + REPOSITORY, (s) -> {
@@ -41,7 +41,7 @@ public class TestWithLambda {
         });
         step ("Проверяем наличие " + RESULTS, (s) -> {
             s.parameter("results", RESULTS);
-                $(byText(RESULTS)).should(Condition.exist);
+            $(".UnderlineNav-body").$(byText("Issues")).should(Condition.visible);
         });
 
     }
